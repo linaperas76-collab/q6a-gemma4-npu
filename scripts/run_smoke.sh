@@ -14,9 +14,13 @@ echo "[*] Exporteren van QNN/NPU paden..."
 export LD_LIBRARY_PATH="${RUNTIME_DIR}:${LD_LIBRARY_PATH}"
 export ADSP_LIBRARY_PATH="${RUNTIME_DIR};/usr/lib/dsp/cdsp;/usr/lib/dsp"
 
+mkdir -p /tmp/litert_cache
+
 echo "[*] Starten van NPU-inferentie..."
 $RUNTIME \
   --backend=npu \
+  --sampler_backend=cpu \
+  --cache_dir="/tmp/litert_cache" \
   --litert_dispatch_lib_dir="${RUNTIME_DIR}" \
   --model_path="$MODEL" \
   --input_prompt="Hello Gemma, explain what an NPU is in one sentence." \
