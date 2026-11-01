@@ -1,0 +1,12 @@
+# Exclude model binaries and heavy packages
+packages/*.litertlm
+packages/
+
+# Exclude compiled binaries and proprietary QNN libraries
+runtime/*.so
+runtime/litert_lm_main_q6a_gemma4_npu
+
+# Exclude logs and temporary files
+logs/
+*.log
+__pycache__/
